@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/pages/login_page.dart';
 import 'package:flutter_application_1/widgets/custom_button.dart';
 import 'package:flutter_application_1/widgets/custom_input.dart';
 
@@ -20,12 +21,16 @@ class _RegisterPageState extends State<RegisterPage> {
               children: [
                TextButton(
                style: TextButton.styleFrom(
-                padding: const EdgeInsets.only(right:330.0 ),
+                padding: const EdgeInsets.only(right:300.0 ),
                 textStyle: const TextStyle(
                   fontSize: 15,
                    ),
               ),
-              onPressed: (){},
+              onPressed: (){ Navigator.push(context, MaterialPageRoute(builder: (context){
+                         return LoginPage();
+
+                       },),);
+              },
               child: const Text('< Volver'),
                       ),
               SizedBox(height: 42),

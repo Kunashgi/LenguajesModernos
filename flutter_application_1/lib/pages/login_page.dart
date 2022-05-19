@@ -1,7 +1,9 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/pages/register_page.dart';
 
+import 'datos_personales.dart';
 import 'olvidaste_contrasena.dart';
 
 
@@ -94,12 +96,22 @@ class _LoginPageState extends State<LoginPage> {
                    borderRadius: BorderRadius.circular(12)
                    ),
                    child: Center(
-                   child: Text('Iniciar Sesión',
-                   style: TextStyle(color: Colors.white,
-                   fontWeight: FontWeight.bold,
-                   fontSize: 18,
-                   ),
-                   ),
+                   child:
+                    GestureDetector(
+                      onTap: (){
+                        Navigator.push(context, MaterialPageRoute(builder: (context){
+                          return DatosPage();
+                        },
+                        ),
+                        );
+                      },
+                      child: Text('Iniciar Sesión',
+                                       style: TextStyle(color: Colors.white,
+                                       fontWeight: FontWeight.bold,
+                                       fontSize: 18,
+                                       ),
+                                       ),
+                    ),
                  ),
                  ),
                ),
@@ -114,12 +126,20 @@ class _LoginPageState extends State<LoginPage> {
                      fontWeight: FontWeight.bold,
                    
                    ),),
-                   Text(' Registrate ahora!',
-                   style: TextStyle(
-                     color: Colors.blue,
-                     fontWeight: FontWeight.bold,
-                   
-                   ),
+                   GestureDetector(
+                     onTap: (){
+                       Navigator.push(context, MaterialPageRoute(builder: (context){
+                         return RegisterPage();
+
+                       },),);
+                     },
+                     child: Text(' Registrate ahora!',
+                     style: TextStyle(
+                       color: Colors.blue,
+                       fontWeight: FontWeight.bold,
+                     
+                     ),
+                     ),
                    ),
                  ],
                ),
