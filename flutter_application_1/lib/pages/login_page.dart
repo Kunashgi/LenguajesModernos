@@ -86,10 +86,10 @@ class _LoginPageState extends State<LoginPage> {
                    ),
                  ),
                ),
-               SizedBox(height: 10,),
+               SizedBox(height: 35,),
                
                Padding(
-                 padding: const EdgeInsets.symmetric(horizontal:20.0),
+                 padding: const EdgeInsets.symmetric(horizontal:50.0),
                  child: Container(
                    padding: EdgeInsets.all(15),
                    decoration: BoxDecoration(color: Colors.black,
