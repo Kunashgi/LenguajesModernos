@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../pages/login_page.dart';
+
 class NavBar extends StatelessWidget {
   const NavBar({ Key? key }) : super(key: key);
 
@@ -30,7 +32,7 @@ class NavBar extends StatelessWidget {
           ),
           ListTile(
             leading: Icon(Icons.account_box),
-            title: Text("Listado Clietnes"),
+            title: Text("Listado Clientes"),
             onTap: ()=>null,
           ),ListTile(
             leading: Icon(Icons.add_shopping_cart_sharp),
@@ -43,7 +45,30 @@ class NavBar extends StatelessWidget {
           ),ListTile(
             leading: Icon(Icons.exit_to_app),
             title: Text("Cerrar Sesión"),
-            onTap: ()=>null,
+            onTap: (){
+              showDialog(
+                context: context,
+                builder: (context)=>AlertDialog(
+                  title: Text('Cerrar Sesión',
+                  textAlign: TextAlign.center,
+                  ),
+                  content: Text('¿Estás seguro que deseas cerrar sesión?'),
+                  actions: [
+                    FlatButton(onPressed: (){
+                      Navigator.push(context, MaterialPageRoute(builder: (context){
+                         return LoginPage();
+
+                       },),);
+                    }, child: Text('Salir')
+                    ),
+                    FlatButton(onPressed: ()=>Navigator.pop(context,false), child: Text('Cancelar'))
+                  
+                  ],
+                  
+
+                ),
+              );
+            },
           ),
         ],
       ),
