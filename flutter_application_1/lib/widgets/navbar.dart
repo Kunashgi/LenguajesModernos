@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../pages/list.dart';
 import '../pages/login_page.dart';
 
 class NavBar extends StatelessWidget {
@@ -37,11 +38,13 @@ class NavBar extends StatelessWidget {
           ),ListTile(
             leading: Icon(Icons.add_shopping_cart_sharp),
             title: Text("Listado Ventas"),
-            onTap: ()=>null,
+            onTap: ()=>null
           ),ListTile(
             leading: Icon(Icons.align_horizontal_right),
             title: Text("Listado Cotizaciones"),
-            onTap: ()=>null,
+            onTap: ()=>Navigator.push(context,MaterialPageRoute(builder: (context){
+              return ListViewBuilder();
+            },),),
           ),ListTile(
             leading: Icon(Icons.exit_to_app),
             title: Text("Cerrar Sesión"),
