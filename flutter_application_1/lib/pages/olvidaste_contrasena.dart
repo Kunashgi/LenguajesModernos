@@ -15,7 +15,7 @@ class _OlvidasteContrasenaState extends State<OlvidasteContrasena> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.black,
+        backgroundColor: Colors.grey[300],
       ),
       
       body: Column(

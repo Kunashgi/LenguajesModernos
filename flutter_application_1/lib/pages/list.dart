@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/pages/search.dart';
 import '../pages/login_page.dart';
 
 class ListViewBuilder extends StatelessWidget {
@@ -32,6 +33,24 @@ class ListViewBuilder extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar:AppBar (actions: [
+        IconButton(
+        icon: const Icon(Icons.search),
+        onPressed: () {
+          showSearch(context: context, delegate: CustomSearchDelegate());
+        },
+        ),
+  
+        PopupMenuButton(itemBuilder: (context)=>[
+          PopupMenuItem(child: Text('Mas Antiguo')),
+          PopupMenuItem(child: Text('Mas Reciente')),
+          PopupMenuItem(child: Text('Mas Caro')),
+          
+        ]),
+        
+        
+      ],
+      ),
       //====================== List View is here ===========================
       body: Container(
         child: ListView.separated(
@@ -54,4 +73,6 @@ class ListViewBuilder extends StatelessWidget {
       ),
     );
   }
+  
 }
+
