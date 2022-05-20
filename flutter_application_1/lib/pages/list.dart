@@ -39,6 +39,14 @@ class ListViewBuilder extends StatelessWidget {
         onPressed: () {
           showSearch(context: context, delegate: CustomSearchDelegate());
         },
+
+        ),
+                IconButton(
+        icon: const Icon(Icons.add),
+        onPressed: () {
+          Navigator.of(context).pushReplacement(MaterialPageRoute(
+                    builder: (BuildContext context) => LoginPage()));
+        },
         ),
   
         PopupMenuButton(itemBuilder: (context)=>[
