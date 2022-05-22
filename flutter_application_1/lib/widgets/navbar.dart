@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/pages/historial_cotizaciones.dart';
+import 'package:flutter_application_1/pages/listado_clientes.dart';
 
-import '../pages/list.dart';
+import '../pages/listado_cotizaciones.dart';
 import '../pages/login_page.dart';
 
 class NavBar extends StatelessWidget {
@@ -34,16 +36,20 @@ class NavBar extends StatelessWidget {
           ListTile(
             leading: Icon(Icons.account_box),
             title: Text("Listado Clientes"),
-            onTap: ()=>null,
+            onTap: ()=>Navigator.push(context,MaterialPageRoute(builder: (context){
+              return ListClientes();
+            },),),
           ),ListTile(
             leading: Icon(Icons.add_shopping_cart_sharp),
-            title: Text("Listado Ventas"),
-            onTap: ()=>null
+            title: Text("Historial de Cotizaciones"),
+            onTap: ()=>Navigator.push(context,MaterialPageRoute(builder: (context){
+              return HistCotizaciones();
+            },),),
           ),ListTile(
             leading: Icon(Icons.align_horizontal_right),
             title: Text("Listado Cotizaciones"),
             onTap: ()=>Navigator.push(context,MaterialPageRoute(builder: (context){
-              return ListViewBuilder();
+              return ListCotizaciones();
             },),),
           ),ListTile(
             leading: Icon(Icons.exit_to_app),
@@ -64,7 +70,7 @@ class NavBar extends StatelessWidget {
                        },),);
                     }, child: Text('Salir')
                     ),
-                    FlatButton(onPressed: ()=>Navigator.pop(context,false), child: Text('Cancelar'))
+                    FlatButton(onPressed: ()=>Navigator.pop(context,false), child: Text('Cancelar'),)
                   
                   ],
                   

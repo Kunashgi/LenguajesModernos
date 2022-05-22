@@ -3,9 +3,11 @@ class CustomSearchDelegate extends SearchDelegate {
   // Demo list to show querying
   List<String> searchTerms = [
     "Juanito Perez",
-    "Lucho giadach",
     "Eduardo Barrera",
     "Tanjiro kamado",
+    "39M6-EJV8-023H",
+    "43SA-QW44-ERT2"
+
   ];
      
   // first overwrite to

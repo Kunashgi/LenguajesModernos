@@ -1,33 +1,65 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/pages/datos_personales.dart';
+import 'package:flutter_application_1/pages/register_page.dart';
 import 'package:flutter_application_1/pages/search.dart';
 import '../pages/login_page.dart';
 
-class ListViewBuilder extends StatelessWidget {
+class ListClientes extends StatelessWidget {
   // from this list data have to fatch
   List<Map> products = [
     {
       "fecha": "20-05-2022",
       "name": "Juanito Perez",
       "ID": "01",
-      "Estado": " Pagada"
+      "Estado": " Bloqueado",
     },
     {
       "fecha": "21-03-2021",
       "name": "Lucho giadach",
       "ID": "02",
-      "Estado": " Pagada"
+      "Estado": " Desbloqueado"
     },
     {
       "fecha": "14-01-2021",
       "name": "Eduardo Barrera",
       "ID": "03",
-      "Estado": " En curso"
+      "Estado": " Bloqueado"
     },
     {
       "fecha": "01-12-2022",
       "name": "Tanjiro kamado",
       "ID": "04",
-      "Estado": " En curso"
+      "Estado": " Desbloqueado"
+    },
+    {
+      "fecha": "01-12-2022",
+      "name": "Tanjiro kamado",
+      "ID": "04",
+      "Estado": " Desbloqueado"
+    },
+    {
+      "fecha": "01-12-2022",
+      "name": "Tanjiro kamado",
+      "ID": "04",
+      "Estado": " Desbloqueado"
+    },
+    {
+      "fecha": "01-12-2022",
+      "name": "Tanjiro kamado",
+      "ID": "04",
+      "Estado": " Desbloqueado"
+    },
+    {
+      "fecha": "01-12-2022",
+      "name": "Tanjiro kamado",
+      "ID": "04",
+      "Estado": " Desbloqueado"
+    },
+    {
+      "fecha": "01-12-2022",
+      "name": "Tanjiro kamado",
+      "ID": "04",
+      "Estado": " Desbloqueado"
     },
   ];
   @override
@@ -45,14 +77,16 @@ class ListViewBuilder extends StatelessWidget {
         icon: const Icon(Icons.add),
         onPressed: () {
           Navigator.of(context).pushReplacement(MaterialPageRoute(
-                    builder: (BuildContext context) => LoginPage()));
+                    builder: (BuildContext context) => RegisterPage()));
         },
         ),
   
         PopupMenuButton(itemBuilder: (context)=>[
           PopupMenuItem(child: Text('Mas Antiguo')),
           PopupMenuItem(child: Text('Mas Reciente')),
-          PopupMenuItem(child: Text('Mas Caro')),
+          PopupMenuItem(child: Text('(Estado) Bloqueado')),
+          PopupMenuItem(child: Text('(Estado) Desbloqueado')),
+
           
         ]),
         
@@ -70,7 +104,7 @@ class ListViewBuilder extends StatelessWidget {
               leading: Icon(Icons.edit),
               onTap: () {
                 Navigator.of(context).pushReplacement(MaterialPageRoute(
-                    builder: (BuildContext context) => LoginPage()));
+                    builder: (BuildContext context) => DatosPage()));
               },
               trailing: Text(products[index]["fecha"]),
               title: Text(products[index]["name"]),
@@ -83,4 +117,3 @@ class ListViewBuilder extends StatelessWidget {
   }
   
 }
-
