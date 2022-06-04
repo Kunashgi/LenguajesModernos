@@ -15,7 +15,7 @@ class ListClientes extends StatelessWidget {
     },
     {
       "fecha": "21-03-2021",
-      "name": "Lucho giadach",
+      "name": "Alberto Gonzalez",
       "ID": "02",
       "Estado": " Desbloqueado"
     },
@@ -33,13 +33,13 @@ class ListClientes extends StatelessWidget {
     },
     {
       "fecha": "01-12-2022",
-      "name": "Tanjiro kamado",
+      "name": "Ignacio Gonzalez",
       "ID": "04",
       "Estado": " Desbloqueado"
     },
     {
       "fecha": "01-12-2022",
-      "name": "Tanjiro kamado",
+      "name": "Nicolas Gonzalez",
       "ID": "04",
       "Estado": " Desbloqueado"
     },
@@ -65,7 +65,7 @@ class ListClientes extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar:AppBar (actions: [
+      appBar:AppBar (title: Text('Clientes'),actions: [
         IconButton(
         icon: const Icon(Icons.search),
         onPressed: () {

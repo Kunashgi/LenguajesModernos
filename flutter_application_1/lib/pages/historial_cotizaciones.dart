@@ -33,7 +33,7 @@ class HistCotizaciones extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar:AppBar (actions: [
+      appBar:AppBar (title: Text('Historial '),actions: [
         IconButton(
         icon: const Icon(Icons.search),
         onPressed: () {

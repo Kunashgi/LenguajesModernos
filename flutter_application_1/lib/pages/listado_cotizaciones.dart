@@ -33,7 +33,7 @@ class ListCotizaciones extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar:AppBar (actions: [
+      appBar:AppBar (title: Text("Cotizaciones",style: TextStyle(fontSize: 18),),actions: [
         IconButton(
         icon: const Icon(Icons.search),
         onPressed: () {

@@ -16,12 +16,12 @@ class NavBar extends StatelessWidget {
         children: [
           UserAccountsDrawerHeader(
             
-          accountName: Text("Gustavo"), 
-          accountEmail: Text("LaRanaGustavo@gmail.com"),
+          accountName: Text("Administrador"), 
+          accountEmail: Text("CorreoDePrueba@gmail.com"),
           currentAccountPicture: CircleAvatar(
             child: ClipOval(
               child: Image.network(
-                'https://static.wikia.nocookie.net/disney/images/f/fb/Kermit_la_rana.png/revision/latest?cb=20160213201722&path-prefix=es'
+                'https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Unknown_person.jpg/925px-Unknown_person.jpg'
                 ),
             ),
           ),

@@ -15,6 +15,7 @@ class _OlvidasteContrasenaState extends State<OlvidasteContrasena> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        title: Text('Recuperar Contraseña'),
         backgroundColor: Colors.grey[300],
       ),
       
