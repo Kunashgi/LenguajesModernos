@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/pages/detalle_orden.dart';
 import 'package:flutter_application_1/pages/search.dart';
 import '../pages/login_page.dart';
 
@@ -33,32 +34,29 @@ class ListCotizaciones extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar:AppBar (actions: [
-        IconButton(
-        icon: const Icon(Icons.search),
-        onPressed: () {
-          showSearch(context: context, delegate: CustomSearchDelegate());
-        },
-
-        ),
-                IconButton(
-        icon: const Icon(Icons.add),
-        onPressed: () {
-          Navigator.of(context).pushReplacement(MaterialPageRoute(
-                    builder: (BuildContext context) => LoginPage()));
-        },
-        ),
-  
-        PopupMenuButton(itemBuilder: (context)=>[
-          PopupMenuItem(child: Text('Mas Antiguo')),
-          PopupMenuItem(child: Text('Mas Reciente')),
-          PopupMenuItem(child: Text('(Estado) Pagada')),
-          PopupMenuItem(child: Text('(Estado) En Curso')),
-          
-        ]),
-        
-        
-      ],
+      appBar: AppBar(
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.search),
+            onPressed: () {
+              showSearch(context: context, delegate: CustomSearchDelegate());
+            },
+          ),
+          IconButton(
+            icon: const Icon(Icons.add),
+            onPressed: () {
+              Navigator.of(context).pushReplacement(MaterialPageRoute(
+                  builder: (BuildContext context) => LoginPage()));
+            },
+          ),
+          PopupMenuButton(
+              itemBuilder: (context) => [
+                    PopupMenuItem(child: Text('Mas Antiguo')),
+                    PopupMenuItem(child: Text('Mas Reciente')),
+                    PopupMenuItem(child: Text('(Estado) Pagada')),
+                    PopupMenuItem(child: Text('(Estado) En Curso')),
+                  ]),
+        ],
       ),
       //====================== List View is here ===========================
       body: Container(
@@ -82,6 +80,4 @@ class ListCotizaciones extends StatelessWidget {
       ),
     );
   }
-  
 }
-

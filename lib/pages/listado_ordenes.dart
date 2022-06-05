@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/pages/search.dart';
 import '../pages/login_page.dart';
+import '../pages/detalle_orden.dart';
+import '../pages/crear_ordenes.dart';
 
 class ListOrdenes extends StatelessWidget {
   // from this list data have to fatch
@@ -69,7 +71,7 @@ class ListOrdenes extends StatelessWidget {
               leading: Icon(Icons.edit),
               onTap: () {
                 Navigator.of(context).pushReplacement(MaterialPageRoute(
-                    builder: (BuildContext context) => LoginPage()));
+                    builder: (BuildContext context) => Detalle_orden()));
               },
               trailing: Text(products[index]["inicio"]),
               title: Text(products[index]["id"]),
@@ -80,6 +82,8 @@ class ListOrdenes extends StatelessWidget {
       ),
       floatingActionButton: FloatingActionButton.extended(
         onPressed: () {
+          Navigator.of(context).pushReplacement(MaterialPageRoute(
+              builder: (BuildContext context) => CrearOrdenes()));
           // Add your onPressed code here!
         },
         label: const Text('Agregar'),
