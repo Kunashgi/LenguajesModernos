@@ -4,6 +4,7 @@ import 'package:flutter_application_1/pages/listado_clientes.dart';
 
 import '../pages/listado_cotizaciones.dart';
 import '../pages/login_page.dart';
+import '../pages/listado_ventas.dart';
 
 class NavBar extends StatelessWidget {
   const NavBar({ Key? key }) : super(key: key);
@@ -51,7 +52,15 @@ class NavBar extends StatelessWidget {
             onTap: ()=>Navigator.push(context,MaterialPageRoute(builder: (context){
               return ListCotizaciones();
             },),),
-          ),ListTile(
+          ),
+          ListTile(
+            leading: Icon(Icons.history),
+            title: Text("Historial de ventas"),
+            onTap: ()=>Navigator.push(context,MaterialPageRoute(builder: (context){
+              return ListVentas();
+            },),),
+          ),
+          ListTile(
             leading: Icon(Icons.exit_to_app),
             title: Text("Cerrar Sesión"),
             onTap: (){
