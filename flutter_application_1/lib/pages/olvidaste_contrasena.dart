@@ -25,7 +25,7 @@ class _OlvidasteContrasenaState extends State<OlvidasteContrasena> {
         
         Padding(
           padding: const EdgeInsets.symmetric(horizontal:25.0),
-          child: Text("ingresa tu correo y te enviaremos un Gmail con los pasos a seguir",
+          child: Text("ingresa tu Gmail y te enviaremos un correo con los pasos a seguir",
           textAlign: TextAlign.center,
           style: TextStyle(
             fontWeight: FontWeight.bold,

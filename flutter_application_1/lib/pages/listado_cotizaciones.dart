@@ -50,11 +50,8 @@ class ListCotizaciones extends StatelessWidget {
         ),
   
         PopupMenuButton(itemBuilder: (context)=>[
-          PopupMenuItem(child: Text('Mas Antiguo')),
-          PopupMenuItem(child: Text('Mas Reciente')),
-          PopupMenuItem(child: Text('(Estado) Pagada')),
-          PopupMenuItem(child: Text('(Estado) En Curso')),
-          
+          PopupMenuItem(child: Text('Fecha Creada')),
+          PopupMenuItem(child: Text('Rango de Fechas'))
         ]),
         
         

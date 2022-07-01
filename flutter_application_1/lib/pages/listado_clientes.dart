@@ -82,12 +82,9 @@ class ListClientes extends StatelessWidget {
         ),
   
         PopupMenuButton(itemBuilder: (context)=>[
-          PopupMenuItem(child: Text('Mas Antiguo')),
-          PopupMenuItem(child: Text('Mas Reciente')),
-          PopupMenuItem(child: Text('(Estado) Bloqueado')),
-          PopupMenuItem(child: Text('(Estado) Desbloqueado')),
+          PopupMenuItem(child: Text('Fecha Creada')),
+          PopupMenuItem(child: Text('Rango de Fechas'))
 
-          
         ]),
         
         

@@ -44,17 +44,13 @@ class HistCotizaciones extends StatelessWidget {
                 IconButton(
         icon: const Icon(Icons.add),
         onPressed: () {
-          Navigator.of(context).pushReplacement(MaterialPageRoute(
-                    builder: (BuildContext context) => LoginPage()));
+          
         },
         ),
   
         PopupMenuButton(itemBuilder: (context)=>[
-          PopupMenuItem(child: Text('Mas Antiguo')),
-          PopupMenuItem(child: Text('Mas Reciente')),
-          PopupMenuItem(child: Text('Mas Caro')),
-          PopupMenuItem(child: Text('(Estado) Pagada')),
-          PopupMenuItem(child: Text('(Estado) En Curso')),
+          PopupMenuItem(child: Text('Fecha Creada')),
+          PopupMenuItem(child: Text('Rango de Fechas'))
           
         ]),
         
@@ -70,9 +66,26 @@ class HistCotizaciones extends StatelessWidget {
           itemBuilder: (BuildContext context, int index) {
             return ListTile(
               leading: Icon(Icons.delete),
-              onTap: () {
-                Navigator.of(context).pushReplacement(MaterialPageRoute(
-                    builder: (BuildContext context) => LoginPage()));
+              onTap: () {showDialog(
+                context: context,
+                builder: (context)=>AlertDialog(
+                  title: Text('Cerrar Sesión',
+                  textAlign: TextAlign.center,
+                  ),
+                  content: Text('¿Estás seguro que deseas eliminar?'),
+                  actions: [
+                    FlatButton(onPressed: (){
+                      
+                    }, child: Text('Si')
+                    ),
+                    FlatButton(onPressed: ()=>Navigator.pop(context,false), child: Text('Cancelar'),)
+                  
+                  ],
+                  
+
+                ),
+              );
+               
               },
               trailing: Text(products[index]["fecha"]),
               title: Text(products[index]["ID"]),
