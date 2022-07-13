@@ -1,5 +1,9 @@
+import 'dart:ffi';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/pages/search.dart';
+import 'package:flutter_application_1/providers/cotizacion_provider.dart';
+import 'package:provider/provider.dart';
 import '../pages/login_page.dart';
 
 class ListCotizaciones extends StatelessWidget {
@@ -32,37 +36,40 @@ class ListCotizaciones extends StatelessWidget {
   ];
   @override
   Widget build(BuildContext context) {
+    final listado = Provider.of<CotizacionProvider>(context);
     return Scaffold(
-      appBar:AppBar (title: Text("Cotizaciones",style: TextStyle(fontSize: 18),),actions: [
-        IconButton(
-        icon: const Icon(Icons.search),
-        onPressed: () {
-          showSearch(context: context, delegate: CustomSearchDelegate());
-        },
-
+      appBar: AppBar(
+        title: Text(
+          "Cotizaciones",
+          style: TextStyle(fontSize: 18),
         ),
-                IconButton(
-        icon: const Icon(Icons.add),
-        onPressed: () {
-          Navigator.of(context).pushReplacement(MaterialPageRoute(
-                    builder: (BuildContext context) => LoginPage()));
-        },
-        ),
-  
-        PopupMenuButton(itemBuilder: (context)=>[
-          PopupMenuItem(child: Text('Fecha Creada')),
-          PopupMenuItem(child: Text('Rango de Fechas'))
-        ]),
-        
-        
-      ],
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.search),
+            onPressed: () {
+              showSearch(context: context, delegate: CustomSearchDelegate());
+            },
+          ),
+          IconButton(
+            icon: const Icon(Icons.add),
+            onPressed: () {
+              Navigator.of(context).pushReplacement(MaterialPageRoute(
+                  builder: (BuildContext context) => LoginPage()));
+            },
+          ),
+          PopupMenuButton(
+              itemBuilder: (context) => [
+                    PopupMenuItem(child: Text('Fecha Creada')),
+                    PopupMenuItem(child: Text('Rango de Fechas'))
+                  ]),
+        ],
       ),
       //====================== List View is here ===========================
       body: Container(
         child: ListView.separated(
           // To add separation line between the ListView
           separatorBuilder: (context, index) => Divider(color: Colors.grey),
-          itemCount: products.length,
+          itemCount: listado.ListadoCotizacionDisplay.length,
           itemBuilder: (BuildContext context, int index) {
             return ListTile(
               leading: Icon(Icons.edit),
@@ -70,15 +77,13 @@ class ListCotizaciones extends StatelessWidget {
                 Navigator.of(context).pushReplacement(MaterialPageRoute(
                     builder: (BuildContext context) => LoginPage()));
               },
-              trailing: Text(products[index]["fecha"]),
-              title: Text(products[index]["ID"]),
-              subtitle: Text(products[index]["Estado"]),
+              trailing: Text(listado.ListadoCotizacionDisplay[index].fechaCreacion.year.toString()),
+              title: Text(listado.ListadoCotizacionDisplay[index].nombreCotizacion),
+              subtitle: Text(listado.ListadoCotizacionDisplay[index].estado),
             );
           },
         ),
       ),
     );
   }
-  
 }
-
