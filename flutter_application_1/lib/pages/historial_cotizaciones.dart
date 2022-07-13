@@ -74,11 +74,11 @@ class HistCotizaciones extends StatelessWidget {
                   ),
                   content: Text('¿Estás seguro que deseas eliminar?'),
                   actions: [
-                    FlatButton(onPressed: (){
+                    TextButton(onPressed: (){
                       
                     }, child: Text('Si')
                     ),
-                    FlatButton(onPressed: ()=>Navigator.pop(context,false), child: Text('Cancelar'),)
+                    TextButton(onPressed: ()=>Navigator.pop(context,false), child: Text('Cancelar'),)
                   
                   ],
                   
