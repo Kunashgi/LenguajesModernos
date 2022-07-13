@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/pages/login_page.dart';
 import 'package:flutter_application_1/providers/cotizacion_provider.dart';
+import 'package:flutter_application_1/providers/provider_cliente_list.dart';
 import 'package:provider/provider.dart';
 import 'package:provider/single_child_widget.dart';
 import 'pages/register_page.dart';
@@ -15,6 +16,7 @@ class ProviderState extends StatelessWidget {
     return MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (_) => CotizacionProvider(), lazy: false,),
+        ChangeNotifierProvider(create: (_) =>IntegrarEnd(), lazy: false,),
       ],
       child: const MyApp(),
     );
