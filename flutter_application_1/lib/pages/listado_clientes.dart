@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/models/clientes_list.dart';
 import 'package:flutter_application_1/pages/datos_personales.dart';
 import 'package:flutter_application_1/pages/register_page.dart';
 import 'package:flutter_application_1/pages/search.dart';
+import 'package:flutter_application_1/providers/provider_cliente_list.dart';
+import 'package:provider/provider.dart';
 import '../pages/login_page.dart';
 
 class ListClientes extends StatelessWidget {
@@ -64,6 +67,7 @@ class ListClientes extends StatelessWidget {
   ];
   @override
   Widget build(BuildContext context) {
+    final listado = Provider.of<IntegrarEnd>(context);
     return Scaffold(
       appBar:AppBar (title: Text('Clientes'),actions: [
         IconButton(
@@ -95,7 +99,7 @@ class ListClientes extends StatelessWidget {
         child: ListView.separated(
           // To add separation line between the ListView
           separatorBuilder: (context, index) => Divider(color: Colors.grey),
-          itemCount: products.length,
+          itemCount: listado.ListadoClienteDisplay.length,
           itemBuilder: (BuildContext context, int index) {
             return ListTile(
               leading: Icon(Icons.edit),
@@ -104,8 +108,8 @@ class ListClientes extends StatelessWidget {
                     builder: (BuildContext context) => DatosPage()));
               },
               trailing: Text(products[index]["fecha"]),
-              title: Text(products[index]["name"]),
-              subtitle: Text(products[index]["Estado"]),
+              title: Text(listado.ListadoClienteDisplay[index].rutCliente),
+              subtitle: Text(listado.ListadoClienteDisplay[index].estadoCliente),
             );
           },
         ),
