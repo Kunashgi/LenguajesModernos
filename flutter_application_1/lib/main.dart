@@ -7,6 +7,7 @@ import 'package:provider/single_child_widget.dart';
 import 'pages/register_page.dart';
 import 'pages/datos_personales.dart';
 import 'pages/listado_cotizaciones.dart';
+import 'routes/rutas.dart';
 
 void main() => runApp(ProviderState());
 
@@ -35,6 +36,7 @@ class MyApp extends StatelessWidget {
         primarySwatch:
             Colors.grey, //i am set brown colour,you can set your colour here
       ),
+      routes: AppRoutes.routes,
     );
   }
 }

@@ -5,6 +5,7 @@ import 'package:flutter_application_1/pages/search.dart';
 import 'package:flutter_application_1/providers/cotizacion_provider.dart';
 import 'package:provider/provider.dart';
 import '../pages/login_page.dart';
+import '../pages/page_detailcoti.dart';
 
 class ListCotizaciones extends StatelessWidget {
   // from this list data have to fatch
@@ -74,11 +75,16 @@ class ListCotizaciones extends StatelessWidget {
             return ListTile(
               leading: Icon(Icons.edit),
               onTap: () {
-                Navigator.of(context).pushReplacement(MaterialPageRoute(
-                    builder: (BuildContext context) => LoginPage()));
+                Navigator.pushNamed(
+                  context,
+                  'detalle', arguments: listado.ListadoCotizacionDisplay[index]
+                );
               },
-              trailing: Text(listado.ListadoCotizacionDisplay[index].fechaCreacion.year.toString()),
-              title: Text(listado.ListadoCotizacionDisplay[index].nombreCotizacion),
+              trailing: Text(listado
+                  .ListadoCotizacionDisplay[index].fechaCreacion.year
+                  .toString()),
+              title: Text(
+                  listado.ListadoCotizacionDisplay[index].nombreCotizacion),
               subtitle: Text(listado.ListadoCotizacionDisplay[index].estado),
             );
           },
