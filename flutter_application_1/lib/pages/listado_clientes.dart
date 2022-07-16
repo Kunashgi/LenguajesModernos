@@ -6,6 +6,7 @@ import 'package:flutter_application_1/pages/search.dart';
 import 'package:flutter_application_1/providers/provider_cliente_list.dart';
 import 'package:provider/provider.dart';
 import '../pages/login_page.dart';
+import '../pages/page_detailclie.dart';
 
 class ListClientes extends StatelessWidget {
   // from this list data have to fatch
@@ -104,9 +105,7 @@ class ListClientes extends StatelessWidget {
             return ListTile(
               leading: Icon(Icons.edit),
               onTap: () {
-                Navigator.of(context).pushReplacement(MaterialPageRoute(
-                    builder: (BuildContext context) => DatosPage()));
-              },
+                Navigator.pushNamed(context,'detalleclie', arguments: listado.ListadoClienteDisplay[index]);},
               trailing: Text(products[index]["fecha"]),
               title: Text(listado.ListadoClienteDisplay[index].rutCliente),
               subtitle: Text(listado.ListadoClienteDisplay[index].estadoCliente),

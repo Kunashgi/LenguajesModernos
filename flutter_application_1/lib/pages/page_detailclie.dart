@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 
-import '../models/cotizacion_list.dart';
+import '../models/clientes_list.dart';
 
-class PageCotiView extends StatelessWidget {
-  const PageCotiView({Key? key}) : super(key: key);
+class PageClieView extends StatelessWidget {
+  const PageClieView({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     final Listado data = ModalRoute.of(context)?.settings.arguments as Listado;
     return Scaffold(
         appBar: AppBar(
-          title: const Text("Detalle Cotización"),
+          title: const Text("Ver Cliente"),
         ),
         body: ListView(
           padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 20),
@@ -18,31 +18,43 @@ class PageCotiView extends StatelessWidget {
               child: Column(children: [
                 ListTile(
                   leading: const Icon(
-                    Icons.format_color_text,
+                    Icons.person,
                     color: Colors.red,
                   ),
-                  title: Text('Nombre: ' + data.nombreCotizacion),
+                  title: Text('Nombre: ' + data.nombreCliente),
                 ),
                 ListTile(
                   leading: const Icon(
-                    Icons.format_list_bulleted,
+                    Icons.person,
                     color: Colors.red,
                   ),
-                  title: Text('Descripcion:     ' + data.descripcion),
+                  title: Text('Apellido:     ' + data.apellidoCliente),
                 ),
                 ListTile(
                   leading: const Icon(
-                    Icons.price_check,
+                    Icons.mail,
                     color: Colors.red,
                   ),
-                  title: Text('Precio:    ' + data.precioTotal),
+                  title: Text('Correo:    ' + data.gmail),
                 ),
                 ListTile(
+                  leading: const Icon(
+                    Icons.maps_home_work,
+                    color: Colors.red,
+                  ),
+                  title: Text('Dirección:    ' + data.direccion),
+                ),ListTile(
+                  leading: const Icon(
+                    Icons.credit_card,
+                    color: Colors.red,
+                  ),
+                  title: Text('RUT:    ' + data.rutCliente),
+                ),ListTile(
                   leading: const Icon(
                     Icons.toggle_on,
                     color: Colors.red,
                   ),
-                  title: Text('Estado:    ' + data.estado),
+                  title: Text('Estado:    ' + data.estadoCliente),
                 )
               ]),
             )
