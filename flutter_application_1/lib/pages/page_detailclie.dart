@@ -21,14 +21,7 @@ class PageClieView extends StatelessWidget {
                     Icons.person,
                     color: Colors.red,
                   ),
-                  title: Text('Nombre: ' + data.nombreCliente),
-                ),
-                ListTile(
-                  leading: const Icon(
-                    Icons.person,
-                    color: Colors.red,
-                  ),
-                  title: Text('Apellido:     ' + data.apellidoCliente),
+                  title: Text('Nombre: ' + data.nombreCliente+' '+data.apellidoCliente),
                 ),
                 ListTile(
                   leading: const Icon(
