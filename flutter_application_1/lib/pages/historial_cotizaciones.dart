@@ -70,7 +70,7 @@ class HistCotizaciones extends StatelessWidget {
                   context: context,
                   builder: (context) => AlertDialog(
                     title: Text(
-                      'Cerrar Sesión',
+                      'Eliminar Cotización',
                       textAlign: TextAlign.center,
                     ),
                     content: Text('¿Estás seguro que deseas eliminar?'),
