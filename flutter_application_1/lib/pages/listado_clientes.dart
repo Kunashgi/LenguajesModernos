@@ -38,7 +38,7 @@ class ListClientes extends StatelessWidget {
     {
       "fecha": "08-07-2022",
       "name": "Ignacio Gonzalez",
-      "ID": "04",
+      "ID": "05",
       "Estado": " Desbloqueado"
     },
     {
@@ -70,30 +70,28 @@ class ListClientes extends StatelessWidget {
   Widget build(BuildContext context) {
     final listado = Provider.of<IntegrarEnd>(context);
     return Scaffold(
-      appBar:AppBar (title: Text('Clientes'),actions: [
-        IconButton(
-        icon: const Icon(Icons.search),
-        onPressed: () {
-          showSearch(context: context, delegate: CustomSearchDelegate());
-        },
-
-        ),
-                IconButton(
-        icon: const Icon(Icons.add),
-        onPressed: () {
-          Navigator.of(context).pushReplacement(MaterialPageRoute(
-                    builder: (BuildContext context) => RegisterPage()));
-        },
-        ),
-  
-        PopupMenuButton(itemBuilder: (context)=>[
-          PopupMenuItem(child: Text('Fecha Creada')),
-          PopupMenuItem(child: Text('Rango de Fechas'))
-
-        ]),
-        
-        
-      ],
+      appBar: AppBar(
+        title: Text('Clientes'),
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.search),
+            onPressed: () {
+              showSearch(context: context, delegate: CustomSearchDelegate());
+            },
+          ),
+          IconButton(
+            icon: const Icon(Icons.add),
+            onPressed: () {
+              Navigator.of(context).pushReplacement(MaterialPageRoute(
+                  builder: (BuildContext context) => RegisterPage()));
+            },
+          ),
+          PopupMenuButton(
+              itemBuilder: (context) => [
+                    PopupMenuItem(child: Text('Fecha Creada')),
+                    PopupMenuItem(child: Text('Rango de Fechas'))
+                  ]),
+        ],
       ),
       //====================== List View is here ===========================
       body: Container(
@@ -105,15 +103,17 @@ class ListClientes extends StatelessWidget {
             return ListTile(
               leading: Icon(Icons.edit),
               onTap: () {
-                Navigator.pushNamed(context,'detalleclie', arguments: listado.ListadoClienteDisplay[index]);},
+                Navigator.pushNamed(context, 'detalleclie',
+                    arguments: listado.ListadoClienteDisplay[index]);
+              },
               trailing: Text(products[index]["fecha"]),
               title: Text(listado.ListadoClienteDisplay[index].rutCliente),
-              subtitle: Text(listado.ListadoClienteDisplay[index].estadoCliente),
+              subtitle:
+                  Text(listado.ListadoClienteDisplay[index].estadoCliente),
             );
           },
         ),
       ),
     );
   }
-  
 }

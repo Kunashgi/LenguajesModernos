@@ -1,10 +1,64 @@
 import 'package:flutter/material.dart';
+import '../models/ordenes_list.dart';
 
 class Detalle_orden extends StatelessWidget {
   const Detalle_orden({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
+    final Listado data = ModalRoute.of(context)?.settings.arguments as Listado;
     return Scaffold(
+        appBar: AppBar(
+          title: const Text("Detalle de Orden"),
+        ),
+        body: ListView(
+          padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 20),
+          children: [
+            Card(
+              child: Column(children: [
+                ListTile(
+                  leading: const Icon(
+                    Icons.local_activity,
+                    color: Colors.blue,
+                  ),
+                  title: Text('Nombre actividad: ' + data.nombreDeActividad),
+                ),
+                ListTile(
+                  leading: const Icon(
+                    Icons.work,
+                    color: Colors.blue,
+                  ),
+                  title:
+                      Text('Nombre del proyecto:    ' + data.nombreDelProyecto),
+                ),
+                ListTile(
+                  leading: const Icon(
+                    Icons.maps_home_work,
+                    color: Colors.blue,
+                  ),
+                  title: Text('Estado de Orden:    ' + data.estado),
+                ),
+                ListTile(
+                  leading: const Icon(
+                    Icons.date_range_outlined,
+                    color: Colors.blue,
+                  ),
+                  title: Text(
+                      'Fecha de Creación: ' + data.fechaCreacion.toString()),
+                ),
+                ListTile(
+                  leading: const Icon(
+                    Icons.description_outlined,
+                    color: Colors.blue,
+                  ),
+                  title: Text('Descripción:    ' + data.descripcin),
+                )
+              ]),
+            )
+          ],
+        ));
+  }
+}
+    /*return Scaffold(
         backgroundColor: Color(0xFFFFFFFF),
         appBar: AppBar(
           title: Text('Detalle orden de trabajo'),
@@ -107,3 +161,4 @@ class Detalle_orden extends StatelessWidget {
     );
   }
 }
+*/

@@ -4,9 +4,10 @@ import 'package:http/http.dart' as http;
 import 'package:flutter_application_1/models/ordenes_list.dart';
 
 class OrdenesProvider extends ChangeNotifier {
-  final String APIUSER = 'test';
-  final String APIPASS = 'test..2022';
-  final String BASEURL = '157.230.213.232:8000';
+  final String _user = 'test';
+  final String _pass = 'test..2022';
+  final String _baseUrl = '157.230.213.232:8000';
+
   List<Listado> ListadoOrdenesDisplay = [];
   Listado? selectedProduct;
   bool isLoading = true;
@@ -32,17 +33,16 @@ class OrdenesProvider extends ChangeNotifier {
     isLoading = true;
     notifyListeners();
     final url = Uri.http(
-      BASEURL,
-      '/ordenes/ordenes_orden_list_rest/',
+      _baseUrl,
+      'ordenes/ordenes_orden_list_rest/',
     );
-    String basicAuth =
-        'Basic ' + base64Encode(utf8.encode('$APIUSER:$APIPASS'));
+    String basicAuth = 'Basic ' + base64Encode(utf8.encode('$_user:$_pass'));
     final response = await http.get(url, headers: {'authorization': basicAuth});
     //creearemos un mapa
-    final OrdenResponse = ListadoOrden.fromJson(response.body);
-    ListadoOrdenesDisplay = OrdenResponse.listado;
+    final providersMap = ListadoOrden.fromJson(response.body);
+    ListadoOrdenesDisplay = providersMap.listado;
+    print(ListadoOrdenesDisplay.length);
     isLoading = false;
     notifyListeners(); //notifica a los widgets cuando hay un cambio en la data
-    print(OrdenResponse.listado[1234].nombreDeActividad);
   }
 }

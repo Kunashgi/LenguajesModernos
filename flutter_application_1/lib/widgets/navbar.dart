@@ -70,7 +70,7 @@ class NavBar extends StatelessWidget {
           ),
           ListTile(
             leading: Icon(Icons.work),
-            title: Text("Historial Órdenes de Trabajo"),
+            title: Text("Órdenes de Trabajo"),
             onTap: () => Navigator.push(
               context,
               MaterialPageRoute(

@@ -14,16 +14,16 @@ class ListadoOrden {
   factory ListadoOrden.fromJson(String str) =>
       ListadoOrden.fromMap(json.decode(str));
 
-  /*String toJson() => json.encode(toMap());*/
+  String toJson() => json.encode(toMap());
 
   factory ListadoOrden.fromMap(Map<String, dynamic> json) => ListadoOrden(
         listado:
             List<Listado>.from(json["Listado"].map((x) => Listado.fromMap(x))),
       );
 
-  /*Map<String, dynamic> toMap() => {
+  Map<String, dynamic> toMap() => {
         "Listado": List<dynamic>.from(listado.map((x) => x.toMap())),
-      };*/
+      };
 }
 
 class Listado {

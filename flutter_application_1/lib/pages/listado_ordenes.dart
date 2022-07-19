@@ -47,6 +47,7 @@ class ListOrdenes extends StatelessWidget {
     final listado = Provider.of<OrdenesProvider>(context);
     return Scaffold(
       appBar: AppBar(
+        title: Text('Ordenes de Trabajo'),
         actions: [
           IconButton(
             icon: const Icon(Icons.search),
@@ -68,25 +69,26 @@ class ListOrdenes extends StatelessWidget {
         child: ListView.separated(
           // To add separation line between the ListView
           separatorBuilder: (context, index) => Divider(color: Colors.grey),
-          itemCount: /*products.length,*/ listado.ListadoOrdenesDisplay.length,
+          itemCount: listado.ListadoOrdenesDisplay.length,
           itemBuilder: (BuildContext context, int index) {
             return ListTile(
               leading: Icon(Icons.edit),
               onTap: () {
-                Navigator.of(context).pushReplacement(MaterialPageRoute(
-                    builder: (BuildContext context) => Detalle_orden()));
+                Navigator.pushNamed(context, 'detalleOrden',
+                    arguments: listado.ListadoOrdenesDisplay[index]);
               },
-              trailing: Text(listado.ListadoOrdenesDisplay[index].fechaCreacion
-                  .toString()),
-              title:
-                  Text(listado.ListadoOrdenesDisplay[index].nombreDeActividad),
-              /*(products[index]["id"])*/
-              subtitle: Text(products[index]["estado"]),
+              trailing: Text(
+                  listado.ListadoOrdenesDisplay[index].fechaCreacion //fecha
+                      .toString()),
+              title: Text(listado.ListadoOrdenesDisplay[index]
+                  .nombreDeActividad), //nombre actividad
+              subtitle:
+                  Text(listado.ListadoOrdenesDisplay[index].estado), //el estado
             );
           },
         ),
       ),
-      floatingActionButton: FloatingActionButton.extended(
+      /*floatingActionButton: FloatingActionButton.extended(
         onPressed: () {
           Navigator.of(context).pushReplacement(MaterialPageRoute(
               builder: (BuildContext context) => CrearOrdenes()));
@@ -95,7 +97,7 @@ class ListOrdenes extends StatelessWidget {
         label: const Text('Agregar'),
         icon: const Icon(Icons.add_box_outlined),
         backgroundColor: Colors.grey,
-      ),
+      ),*/
     );
   }
 }
