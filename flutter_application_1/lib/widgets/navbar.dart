@@ -72,14 +72,14 @@ class NavBar extends StatelessWidget {
                   ),
                   content: Text('¿Estás seguro que deseas cerrar sesión?'),
                   actions: [
-                    FlatButton(onPressed: (){
+                    TextButton(onPressed: (){
                       Navigator.push(context, MaterialPageRoute(builder: (context){
                          return LoginPage();
 
                        },),);
                     }, child: Text('Salir')
                     ),
-                    FlatButton(onPressed: ()=>Navigator.pop(context,false), child: Text('Cancelar'),)
+                    TextButton(onPressed: ()=>Navigator.pop(context,false), child: Text('Cancelar'),)
                   
                   ],
                   

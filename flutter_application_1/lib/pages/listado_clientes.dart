@@ -1,38 +1,42 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/models/clientes_list.dart';
 import 'package:flutter_application_1/pages/datos_personales.dart';
 import 'package:flutter_application_1/pages/register_page.dart';
 import 'package:flutter_application_1/pages/search.dart';
+import 'package:flutter_application_1/providers/provider_cliente_list.dart';
+import 'package:provider/provider.dart';
 import '../pages/login_page.dart';
+import '../pages/page_detailclie.dart';
 
 class ListClientes extends StatelessWidget {
   // from this list data have to fatch
   List<Map> products = [
     {
-      "fecha": "20-05-2022",
+      "fecha": "22-06-2022",
       "name": "Juanito Perez",
       "ID": "01",
       "Estado": " Bloqueado",
     },
     {
-      "fecha": "21-03-2021",
+      "fecha": "21-06-2022",
       "name": "Alberto Gonzalez",
       "ID": "02",
       "Estado": " Desbloqueado"
     },
     {
-      "fecha": "14-01-2021",
+      "fecha": "14-07-2022",
       "name": "Eduardo Barrera",
       "ID": "03",
       "Estado": " Bloqueado"
     },
     {
-      "fecha": "01-12-2022",
+      "fecha": "13-07-2022",
       "name": "Tanjiro kamado",
       "ID": "04",
       "Estado": " Desbloqueado"
     },
     {
-      "fecha": "01-12-2022",
+      "fecha": "08-07-2022",
       "name": "Ignacio Gonzalez",
       "ID": "04",
       "Estado": " Desbloqueado"
@@ -64,6 +68,7 @@ class ListClientes extends StatelessWidget {
   ];
   @override
   Widget build(BuildContext context) {
+    final listado = Provider.of<IntegrarEnd>(context);
     return Scaffold(
       appBar:AppBar (title: Text('Clientes'),actions: [
         IconButton(
@@ -82,12 +87,9 @@ class ListClientes extends StatelessWidget {
         ),
   
         PopupMenuButton(itemBuilder: (context)=>[
-          PopupMenuItem(child: Text('Mas Antiguo')),
-          PopupMenuItem(child: Text('Mas Reciente')),
-          PopupMenuItem(child: Text('(Estado) Bloqueado')),
-          PopupMenuItem(child: Text('(Estado) Desbloqueado')),
+          PopupMenuItem(child: Text('Fecha Creada')),
+          PopupMenuItem(child: Text('Rango de Fechas'))
 
-          
         ]),
         
         
@@ -98,17 +100,15 @@ class ListClientes extends StatelessWidget {
         child: ListView.separated(
           // To add separation line between the ListView
           separatorBuilder: (context, index) => Divider(color: Colors.grey),
-          itemCount: products.length,
+          itemCount: listado.ListadoClienteDisplay.length,
           itemBuilder: (BuildContext context, int index) {
             return ListTile(
               leading: Icon(Icons.edit),
               onTap: () {
-                Navigator.of(context).pushReplacement(MaterialPageRoute(
-                    builder: (BuildContext context) => DatosPage()));
-              },
+                Navigator.pushNamed(context,'detalleclie', arguments: listado.ListadoClienteDisplay[index]);},
               trailing: Text(products[index]["fecha"]),
-              title: Text(products[index]["name"]),
-              subtitle: Text(products[index]["Estado"]),
+              title: Text(listado.ListadoClienteDisplay[index].rutCliente),
+              subtitle: Text(listado.ListadoClienteDisplay[index].estadoCliente),
             );
           },
         ),
