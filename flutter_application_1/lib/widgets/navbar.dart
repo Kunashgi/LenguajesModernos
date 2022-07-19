@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/pages/historial_cotizaciones.dart';
 import 'package:flutter_application_1/pages/listado_clientes.dart';
+import 'package:flutter_application_1/pages/listado_ordenes.dart';
 
 import '../pages/listado_cotizaciones.dart';
 import '../pages/login_page.dart';
 
 class NavBar extends StatelessWidget {
-  const NavBar({ Key? key }) : super(key: key);
+  const NavBar({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -15,73 +16,106 @@ class NavBar extends StatelessWidget {
         padding: EdgeInsets.zero,
         children: [
           UserAccountsDrawerHeader(
-            
-          accountName: Text("Administrador"), 
-          accountEmail: Text("CorreoDePrueba@gmail.com"),
-          currentAccountPicture: CircleAvatar(
-            child: ClipOval(
-              child: Image.network(
-                'https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Unknown_person.jpg/925px-Unknown_person.jpg'
-                ),
+            accountName: Text("Administrador"),
+            accountEmail: Text("CorreoDePrueba@gmail.com"),
+            currentAccountPicture: CircleAvatar(
+              child: ClipOval(
+                child: Image.network(
+                    'https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Unknown_person.jpg/925px-Unknown_person.jpg'),
+              ),
             ),
-          ),
-          decoration: BoxDecoration(
-            image: DecorationImage(
-              image: NetworkImage('https://cdn.create.vista.com/api/media/medium/461266962/stock-photo-colorful-geometric-background-pink-pastel?token=',
+            decoration: BoxDecoration(
+                image: DecorationImage(
+              image: NetworkImage(
+                'https://cdn.create.vista.com/api/media/medium/461266962/stock-photo-colorful-geometric-background-pink-pastel?token=',
               ),
               fit: BoxFit.cover,
-            )
-          ),
+            )),
           ),
           ListTile(
             leading: Icon(Icons.account_box),
             title: Text("Listado Clientes"),
-            onTap: ()=>Navigator.push(context,MaterialPageRoute(builder: (context){
-              return ListClientes();
-            },),),
-          ),ListTile(
+            onTap: () => Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) {
+                  return ListClientes();
+                },
+              ),
+            ),
+          ),
+          ListTile(
             leading: Icon(Icons.add_shopping_cart_sharp),
             title: Text("Historial de Cotizaciones"),
-            onTap: ()=>Navigator.push(context,MaterialPageRoute(builder: (context){
-              return HistCotizaciones();
-            },),),
-          ),ListTile(
+            onTap: () => Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) {
+                  return HistCotizaciones();
+                },
+              ),
+            ),
+          ),
+          ListTile(
             leading: Icon(Icons.align_horizontal_right),
             title: Text("Listado Cotizaciones"),
-            onTap: ()=>Navigator.push(context,MaterialPageRoute(builder: (context){
-              return ListCotizaciones();
-            },),),
-          ),ListTile(
+            onTap: () => Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) {
+                  return ListCotizaciones();
+                },
+              ),
+            ),
+          ),
+          ListTile(
+            leading: Icon(Icons.work),
+            title: Text("Historial Órdenes de Trabajo"),
+            onTap: () => Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) {
+                  return ListOrdenes();
+                },
+              ),
+            ),
+          ),
+          ListTile(
             leading: Icon(Icons.exit_to_app),
             title: Text("Cerrar Sesión"),
-            onTap: (){
+            onTap: () {
               showDialog(
                 context: context,
-                builder: (context)=>AlertDialog(
-                  title: Text('Cerrar Sesión',
-                  textAlign: TextAlign.center,
+                builder: (context) => AlertDialog(
+                  title: Text(
+                    'Cerrar Sesión',
+                    textAlign: TextAlign.center,
                   ),
                   content: Text('¿Estás seguro que deseas cerrar sesión?'),
                   actions: [
-                    TextButton(onPressed: (){
-                      Navigator.push(context, MaterialPageRoute(builder: (context){
-                         return LoginPage();
-
-                       },),);
-                    }, child: Text('Salir')
-                    ),
-                    TextButton(onPressed: ()=>Navigator.pop(context,false), child: Text('Cancelar'),)
-                  
+                    TextButton(
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) {
+                                return LoginPage();
+                              },
+                            ),
+                          );
+                        },
+                        child: Text('Salir')),
+                    TextButton(
+                      onPressed: () => Navigator.pop(context, false),
+                      child: Text('Cancelar'),
+                    )
                   ],
-                  
-
                 ),
               );
             },
           ),
         ],
       ),
-      
     );
   }
 }

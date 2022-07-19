@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/pages/search.dart';
+import 'package:provider/provider.dart';
 import '../pages/login_page.dart';
 import '../pages/detalle_orden.dart';
 import '../pages/crear_ordenes.dart';
+import 'package:flutter_application_1/providers/ordenes_provider.dart';
 
 class ListOrdenes extends StatelessWidget {
   // from this list data have to fatch
@@ -42,6 +44,7 @@ class ListOrdenes extends StatelessWidget {
   ];
   @override
   Widget build(BuildContext context) {
+    final listado = Provider.of<OrdenesProvider>(context);
     return Scaffold(
       appBar: AppBar(
         actions: [
@@ -65,7 +68,7 @@ class ListOrdenes extends StatelessWidget {
         child: ListView.separated(
           // To add separation line between the ListView
           separatorBuilder: (context, index) => Divider(color: Colors.grey),
-          itemCount: products.length,
+          itemCount: /*products.length,*/ listado.ListadoOrdenesDisplay.length,
           itemBuilder: (BuildContext context, int index) {
             return ListTile(
               leading: Icon(Icons.edit),
@@ -73,8 +76,11 @@ class ListOrdenes extends StatelessWidget {
                 Navigator.of(context).pushReplacement(MaterialPageRoute(
                     builder: (BuildContext context) => Detalle_orden()));
               },
-              trailing: Text(products[index]["inicio"]),
-              title: Text(products[index]["id"]),
+              trailing: Text(listado.ListadoOrdenesDisplay[index].fechaCreacion
+                  .toString()),
+              title:
+                  Text(listado.ListadoOrdenesDisplay[index].nombreDeActividad),
+              /*(products[index]["id"])*/
               subtitle: Text(products[index]["estado"]),
             );
           },
