@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/widgets/custom_button.dart';
 
+import 'devolucion.dart';
 
 class ventaDetail extends StatelessWidget {
-
   List<Map> products = [
     {
       "fecha": "20-05-2022",
@@ -13,7 +13,6 @@ class ventaDetail extends StatelessWidget {
     },
   ];
 
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -21,7 +20,8 @@ class ventaDetail extends StatelessWidget {
         title: Text("Detalle de la venta"),
       ),
       body: Container(
-        child: Column(children: [
+          child: Column(
+        children: [
           Container(
             padding: EdgeInsets.all(15),
             margin: EdgeInsets.all(5),
@@ -57,15 +57,120 @@ class ventaDetail extends StatelessWidget {
           Container(
             padding: EdgeInsets.all(15),
             margin: EdgeInsets.all(5),
-            child: CustomButton(Texto: "Generar devolución"),
+            child: CustomButtonAlert(Texto: "Generar devolución"),
           ),
           Container(
             padding: EdgeInsets.all(15),
             margin: EdgeInsets.all(5),
-            child: CustomButton(Texto: "Descargar boleta"),
+            child: CustomButtonAlert2(Texto: "Descargar boleta"),
           ),
-        ],)
-      ),
+        ],
+      )),
     );
+  }
+}
+
+class CustomButtonAlert extends StatelessWidget {
+  final String Texto;
+  const CustomButtonAlert({
+    Key? key,
+    required this.Texto,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 50.0),
+        child: Container(
+            padding: EdgeInsets.all(15),
+            decoration: BoxDecoration(
+              color: Colors.grey,
+              borderRadius: BorderRadius.circular(12),
+            ),
+            child: Center(
+              child: FlatButton(
+                textColor: Colors.black,
+                onPressed: () {
+                  showDialog(
+                    context: context,
+                    builder: (BuildContext context) {
+                      return AlertDialog(
+                        title: Text('Generar devolucion'),
+                        content: const Text(
+                            'Estas seguro que deseas generar la devolucion'),
+                        actions: [
+                          FlatButton(
+                            child: Text('Si'),
+                            onPressed: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => Devolucion(),
+                                  ));
+                            },
+                          ),
+                          FlatButton(
+                            child: Text('No'),
+                            onPressed: () {
+                              Navigator.of(context).pop();
+                            },
+                          ),
+                        ],
+                      );
+                    },
+                  );
+                },
+                child: Text(Texto),
+              ),
+            )));
+  }
+}
+
+class CustomButtonAlert2 extends StatelessWidget {
+  final String Texto;
+  const CustomButtonAlert2({
+    Key? key,
+    required this.Texto,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 50.0),
+        child: Container(
+            padding: EdgeInsets.all(15),
+            decoration: BoxDecoration(
+              color: Colors.grey,
+              borderRadius: BorderRadius.circular(12),
+            ),
+            child: Center(
+              child: FlatButton(
+                textColor: Colors.black,
+                onPressed: () {
+                  showDialog(
+                    context: context,
+                    builder: (BuildContext context) {
+                      return AlertDialog(
+                        title: Text('Descargar Boleta'),
+                        content: const Text('Desea descargar la boleta'),
+                        actions: [
+                          FlatButton(
+                            child: Text('Si'),
+                            onPressed: () {},
+                          ),
+                          FlatButton(
+                            child: Text('No'),
+                            onPressed: () {
+                              Navigator.of(context).pop();
+                            },
+                          ),
+                        ],
+                      );
+                    },
+                  );
+                },
+                child: Text(Texto),
+              ),
+            )));
   }
 }
