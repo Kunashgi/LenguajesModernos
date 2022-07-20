@@ -45,18 +45,18 @@ class Listado {
   });
 
   int id;
-  int nmeroOrden;
+  dynamic nmeroOrden;
   String nombreDeActividad;
   String nombreDelProyecto;
   String nombreDeColaborador;
   String estado;
   DateTime fechaCreacion;
-  String descripcin;
-  String direccinOLugar;
+  dynamic descripcin;
+  dynamic direccinOLugar;
   String nombreCliente;
-  String nmeroCliente;
-  String direccinCliente;
-  String correoCliente;
+  dynamic nmeroCliente;
+  dynamic direccinCliente;
+  dynamic correoCliente;
   DateTime fechaActualizacion;
 
   factory Listado.fromJson(String str) => Listado.fromMap(json.decode(str));
@@ -66,7 +66,7 @@ class Listado {
   factory Listado.fromMap(Map<String, dynamic> json) => Listado(
         id: json["ID"],
         nmeroOrden: json["Número Orden"],
-        nombreDeActividad: json["Nombre de Actividad"],
+        nombreDeActividad: json["Nombre de Actividad"], //
         nombreDelProyecto: json["Nombre del Proyecto"],
         nombreDeColaborador: json["Nombre de Colaborador"],
         estado: json["Estado"],

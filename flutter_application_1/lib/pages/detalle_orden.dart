@@ -50,7 +50,7 @@ class Detalle_orden extends StatelessWidget {
                     Icons.description_outlined,
                     color: Colors.blue,
                   ),
-                  title: Text('Descripción:    ' + data.descripcin),
+                  title: Text('Descripción:    ' + data.descripcin.toString()),
                 )
               ]),
             )
