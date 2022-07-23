@@ -88,7 +88,7 @@ class Listado {
         "Nombre de Colaborador": nombreDeColaborador,
         "Estado": estado,
         "fecha creacion":
-            "${fechaCreacion.year.toString().padLeft(4, '0')}-${fechaCreacion.month.toString().padLeft(2, '0')}-${fechaCreacion.day.toString().padLeft(2, '0')}",
+            "${fechaCreacion.day}-${fechaCreacion.month}-${fechaCreacion.year}",
         "Descripción": descripcin,
         "Dirección o Lugar": direccinOLugar,
         "Nombre Cliente": nombreCliente,

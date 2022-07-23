@@ -14,13 +14,32 @@ class Detalle_orden extends StatelessWidget {
           padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 20),
           children: [
             Card(
-              child: Column(children: [
+                child: Column(
+              children: [
                 ListTile(
                   leading: const Icon(
                     Icons.local_activity,
                     color: Colors.blue,
                   ),
-                  title: Text('Nombre actividad: ' + data.nombreDeActividad),
+                  title: Text(data.nombreDeActividad,
+                      style: const TextStyle(fontSize: 30)),
+                  subtitle: Text('Id: ' + data.id.toString(),
+                      style: const TextStyle(fontSize: 17)),
+                ),
+              ],
+            )),
+            Card(
+              child: Column(children: [
+                ListTile(
+                  leading: const Icon(
+                    Icons.maps_home_work,
+                    color: Colors.blue,
+                  ),
+                  title: const Text('Estado de Orden:'),
+                  trailing: Text(
+                    data.estado,
+                    style: const TextStyle(fontSize: 18),
+                  ),
                 ),
                 ListTile(
                   leading: const Icon(
@@ -32,13 +51,6 @@ class Detalle_orden extends StatelessWidget {
                 ),
                 ListTile(
                   leading: const Icon(
-                    Icons.maps_home_work,
-                    color: Colors.blue,
-                  ),
-                  title: Text('Estado de Orden:    ' + data.estado),
-                ),
-                ListTile(
-                  leading: const Icon(
                     Icons.date_range_outlined,
                     color: Colors.blue,
                   ),
@@ -47,13 +59,71 @@ class Detalle_orden extends StatelessWidget {
                 ),
                 ListTile(
                   leading: const Icon(
+                    Icons.people_alt,
+                    color: Colors.blue,
+                  ),
+                  title: Text('Colaborador:    ' + data.nombreDeColaborador),
+                ),
+                ListTile(
+                  leading: const Icon(
+                    Icons.pin_drop_outlined,
+                    color: Colors.blue,
+                  ),
+                  title:
+                      Text('Dirección:    ' + data.direccinOLugar.toString()),
+                ),
+                ListTile(
+                  leading: const Icon(
                     Icons.description_outlined,
                     color: Colors.blue,
                   ),
                   title: Text('Descripción:    ' + data.descripcin.toString()),
-                )
+                ),
               ]),
-            )
+            ),
+            Card(
+                child: Column(
+              children: [
+                const ListTile(
+                  title:
+                      Text("Datos del Cliente", style: TextStyle(fontSize: 21)),
+                ),
+                ListTile(
+                  leading: const Icon(
+                    Icons.person_pin,
+                    color: Colors.blue,
+                  ),
+                  title: Text(data.correoCliente.toString()),
+                ),
+                ListTile(
+                    leading: const Icon(
+                      Icons.person,
+                      color: Colors.blue,
+                    ),
+                    title: Text(data.nombreCliente,
+                        style: const TextStyle(fontSize: 18))),
+                ListTile(
+                  leading: const Icon(
+                    Icons.email,
+                    color: Colors.blue,
+                  ),
+                  title: Text(data.correoCliente.toString()),
+                ),
+                ListTile(
+                    leading: const Icon(
+                      Icons.phone_android_outlined,
+                      color: Colors.blue,
+                    ),
+                    title: Text(data.nmeroCliente.toString())),
+                ListTile(
+                  leading: const Icon(
+                    Icons.person_pin,
+                    color: Colors.blue,
+                  ),
+                  title: Text(data.direccinCliente.toString()),
+                ),
+              ],
+            )),
           ],
         ));
   }
