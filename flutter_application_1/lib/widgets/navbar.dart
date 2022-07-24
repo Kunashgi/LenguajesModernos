@@ -25,7 +25,7 @@ class NavBar extends StatelessWidget {
                     'https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Unknown_person.jpg/925px-Unknown_person.jpg'),
               ),
             ),
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
                 image: DecorationImage(
               image: NetworkImage(
                 'https://cdn.create.vista.com/api/media/medium/461266962/stock-photo-colorful-geometric-background-pink-pastel?token=',
@@ -100,7 +100,7 @@ class NavBar extends StatelessWidget {
               showDialog(
                 context: context,
                 builder: (context) => AlertDialog(
-                  title: Text(
+                  title: const Text(
                     'Cerrar Sesión',
                     textAlign: TextAlign.center,
                   ),
