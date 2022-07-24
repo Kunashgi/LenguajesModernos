@@ -5,6 +5,7 @@ import 'package:flutter_application_1/pages/listado_ordenes.dart';
 
 import '../pages/listado_cotizaciones.dart';
 import '../pages/login_page.dart';
+import '../pages/listado_ventas.dart';
 
 class NavBar extends StatelessWidget {
   const NavBar({Key? key}) : super(key: key);
@@ -76,6 +77,18 @@ class NavBar extends StatelessWidget {
               MaterialPageRoute(
                 builder: (context) {
                   return ListOrdenes();
+                },
+              ),
+            ),
+          ),
+          ListTile(
+            leading: Icon(Icons.history),
+            title: Text("Historial de ventas"),
+            onTap: () => Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) {
+                  return ListVentas();
                 },
               ),
             ),
